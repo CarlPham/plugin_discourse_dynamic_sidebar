@@ -2,6 +2,13 @@
   {{custom-html "top"}}
   {{global-notice}}
   {{discourse-banner user=currentUser banner=site.banner}}
+
+  {{#if siteSettings.enable_sidebar}}
+    <div class="row">
+      {{{siteSettings.sidebar_content}}}
+    </div>
+  {{/if}}
+
 </div>
 
 <div class='list-controls'>
@@ -11,27 +18,3 @@
 </div>
 
 {{conditional-loading-spinner condition=loading}}
-
-<div {{bind-attr class=":container :list-container loading:hidden siteSettings.enable_sidebar:with-sidebar"}}>
-  <div class="row">
-    <div class="full-width">
-      <div id='header-list-area'>
-        {{outlet "header-list-container"}}
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="full-width">
-      <div id='list-area'>
-        {{plugin-outlet "discovery-list-container-top"}}
-        {{outlet "list-container"}}
-      </div>
-    </div>
-  </div>
-</div>
-
-{{#if siteSettings.enable_sidebar}}
-  <div class='sidebar'>
-    {{{siteSettings.sidebar_content}}}
-  </div>
-{{/if}}
