@@ -1,13 +1,14 @@
 <div class='container'>
   {{custom-html "top"}}
-  {{global-notice}}
-  {{discourse-banner user=currentUser banner=site.banner}}
 
   {{#if siteSettings.enable_sidebar}}
     <div class="row">
       {{{siteSettings.sidebar_content}}}
     </div>
   {{/if}}
+
+  {{global-notice}}
+  {{discourse-banner user=currentUser banner=site.banner}}
 
 </div>
 
